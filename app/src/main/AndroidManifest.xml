@@ -42,6 +42,7 @@
         <activity
             android:name=".view.MainActivity"
             android:label="@string/app_name"
+            android:exported="true"
             android:theme="@style/Theme.JetQuotes.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

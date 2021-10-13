@@ -47,6 +47,7 @@ buildscript {
     val systemUIControllerVersion by extra("0.12.0")
     val expressoVersion by extra("3.3.0")
     val kotlinSerializationVersion by extra("1.2.1")
+    val navigationAnimationVersion by extra("0.19.0")
 
     repositories {
         google()

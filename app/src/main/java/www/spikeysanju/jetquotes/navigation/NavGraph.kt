@@ -28,7 +28,6 @@
 
 package www.spikeysanju.jetquotes.navigation
 
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
@@ -37,10 +36,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.navArgument
-import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.google.accompanist.navigation.animation.AnimatedNavHost
+import com.google.accompanist.navigation.animation.composable
+import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import www.spikeysanju.jetquotes.view.details.DetailScreen
 import www.spikeysanju.jetquotes.view.favourites.FavouritesScreen
 import www.spikeysanju.jetquotes.view.quotes.QuotesListScreen
@@ -52,13 +51,12 @@ object EndPoints {
     const val AUTHOR = "author"
 }
 
-@ExperimentalMaterialApi
 @Composable
 fun NavGraph(toggleTheme: () -> Unit) {
-    val navController = rememberNavController()
+    val navController = rememberAnimatedNavController()
     val actions = remember(navController) { MainActions(navController) }
 
-    NavHost(navController, startDestination = Screen.Home.route) {
+    AnimatedNavHost(navController, startDestination = Screen.Home.route) {
         // Quotes List
         composable(Screen.Home.route) {
             val viewModel: MainViewModel = viewModel(
