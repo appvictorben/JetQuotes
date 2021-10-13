@@ -37,30 +37,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.DismissDirection
-import androidx.compose.material.DismissValue
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.FractionalThreshold
-import androidx.compose.material.Icon
-import androidx.compose.material.ListItem
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.SwipeToDismiss
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Delete
-import androidx.compose.material.rememberDismissState
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import www.spikeysanju.jetquotes.R
 import www.spikeysanju.jetquotes.components.EmptyScreen
 import www.spikeysanju.jetquotes.components.QuotesCard
 import www.spikeysanju.jetquotes.components.TopBarWithBack
@@ -69,12 +56,11 @@ import www.spikeysanju.jetquotes.ui.red
 import www.spikeysanju.jetquotes.utils.FavouriteViewState
 import www.spikeysanju.jetquotes.view.viewModel.MainViewModel
 
-@ExperimentalMaterialApi
 @Composable
 fun FavouritesScreen(viewModel: MainViewModel, actions: MainActions) {
     Scaffold(topBar = {
         TopBarWithBack(
-            title = "Favourites",
+            title = stringResource(R.string.text_favourites),
             onBackClick = { actions.upPress() })
 
     }, content = {
@@ -133,7 +119,7 @@ fun FavouritesScreen(viewModel: MainViewModel, actions: MainActions) {
                                 ) {
                                     Icon(
                                         icon,
-                                        contentDescription = "Localized description",
+                                        contentDescription = stringResource(R.string.text_swipe_to_delete),
                                         modifier = Modifier
                                             .scale(scale)
                                             .clickable { viewModel.deleteFavourite(quote) },
@@ -146,7 +132,7 @@ fun FavouritesScreen(viewModel: MainViewModel, actions: MainActions) {
                                     text = {
                                         QuotesCard(quote = quote, actions = actions)
                                     },
-                                    secondaryText = { Text("Swipe to Remove from favourites!") }
+                                    secondaryText = { Text(stringResource(R.string.text_swipe_to_remvoe)) }
                                 )
                             }
                         )

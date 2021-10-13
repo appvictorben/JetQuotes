@@ -33,6 +33,8 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import www.spikeysanju.jetquotes.R
 import www.spikeysanju.jetquotes.components.QuotesList
 import www.spikeysanju.jetquotes.components.TopBar
 import www.spikeysanju.jetquotes.navigation.MainActions
@@ -47,7 +49,7 @@ fun QuotesListScreen(
 ) {
     Scaffold(topBar = {
         TopBar(
-            title = "JetQuotes",
+            title = stringResource(R.string.text_jetquotes),
             onToggle = { toggleTheme() },
             onFavouritesClick = actions.gotoFavourites
         )

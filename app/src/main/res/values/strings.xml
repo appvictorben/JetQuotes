@@ -46,4 +46,8 @@
     <string name="text_favourites_icon">Favourites Icon</string>
     <string name="text_cta_icons">CTA Icons</string>
     <string name="text_search">Search Quotes</string>
+    <string name="text_favourites">Favourites</string>
+    <string name="text_swipe_to_delete">Swipe to Delete Quotes from Saved</string>
+    <string name="text_swipe_to_remvoe">Swipe to Remove from favourites!</string>
+    <string name="text_jetquotes">JetQuotes</string>
 </resources>
