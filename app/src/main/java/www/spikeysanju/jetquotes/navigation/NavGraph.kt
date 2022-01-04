@@ -59,9 +59,7 @@ fun NavGraph(toggleTheme: () -> Unit) {
     AnimatedNavHost(navController, startDestination = Screen.Home.route) {
         // Quotes List
         composable(Screen.Home.route) {
-            val viewModel: MainViewModel = viewModel(
-                factory = HiltViewModelFactory(LocalContext.current, it)
-            )
+            val viewModel = hiltViewModel<MainViewModel>(it)
             QuotesListScreen(viewModel, toggleTheme, actions)
         }
 
