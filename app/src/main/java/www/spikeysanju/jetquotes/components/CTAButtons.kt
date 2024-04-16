@@ -90,9 +90,13 @@ fun CTAButtons(viewModel: MainViewModel, quote: String, author: String) {
                 icon = painterResource(id = R.drawable.ic_share),
                 name = stringResource(R.string.text_share),
                 modifier = Modifier.clickable(onClick = {
-                    context.shareToOthers(quote.plus("").plus("- $author"))
-                })
-            )
+                    val sharedText = quote.plus("").plus("- $author")
+                    val appUrl = "https://yourappurl.com" // Replace this with your actual app URL
+                    val textWithUrl = "$sharedText\n$appUrl"
+                    context.shareToOthers(textWithUrl)
+    })
+)
+
 
             Spacer(modifier = Modifier.width(30.dp))
 
